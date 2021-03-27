@@ -1,11 +1,12 @@
 body{
     background-color: #2b2b2b;
+    font-family: sans-serif;
 }
 
 .head{
     color: #00c4cc;
     font-size: 45px;
-    width: 380px;
+    width: 420px;
     height: auto;
     margin-left: auto;
 	margin-right: auto;
@@ -22,84 +23,6 @@ body{
     padding-top: 12px;
 }
 
-.menu{
-    margin: 0;
-    padding-left: 0;
-    padding-right: 0;
-    text-align: center;
-    width: 100%;
-    background-color: #00c4cc;
-    height: 50px;
-    border-radius: 50px;
-}
-
-ol{
-    list-style: none;
-    font-size: 35px;
-    display: block;
-    margin: auto;
-    width: 450px;
-}
-
-li>a{
-    display: inline-block;
-    text-decoration: none;
-    color: #087f83;
-}
-
-ol>li:hover>a{
-    color: #00c4cc;
-}
-
-ol > li{
-    float: left;
-    padding: 5px;
-    border-right: 1px dotted #087f83;
-}
-
-ol > li:hover{
-    background-color:  #087f83;
-}
-
-ol > li:first-child{
-    border-left: 1px dotted #087f83;
-}
-
-ol>li>ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    height: 40px;
-    display: none;
-}
-
-ol>li:hover>ul{
-    display: block;
-}
-
-ol>li>ul>li {
-    background-color: #087f83;
-    width: 100px;
-    position: relative;
-    z-index: 100;
-    border-top: 1px dashed #00c4cc;
-    padding: 0;
-}
-
-ol>li>ul>li:hover {
-    background-color: #00c4cc;
-}
-
-ol>li>ul>li:hover>a {
-    color: #087f83;
-}
-
-ul a {
-    color: #00c4cc;
-    display: block;
-    text-decoration: none;
-}
-
 .menu {
     width: 100%;
     margin: 0;
@@ -109,10 +32,10 @@ ul a {
     padding-top: 5px;
     background-color: #00c4cc;
     height: 50px;
-    border-radius: 50px;
+    border-radius: 5px;
 }
 
-ol {
+.list {
     margin: 0;
     list-style-type: none;
     font-size: 20px;
@@ -123,13 +46,13 @@ ol {
     padding: 0;
 }
 
-ol a {
+.link {
     color: #087f83;
     display: block;
     text-decoration: none;
 }
 
-ol>li {
+.el {
     margin: 0;
     float: left;
     padding: 0;
@@ -140,21 +63,29 @@ ol>li {
     border-radius: 0;
 }
 
-ol>li:first-child {
+.el1 {
+    margin: 0;
+    float: left;
+    padding: 0;
+    width: 100px;
+    height: 40px;
+    border-right: 1px dotted #087f83;
+    background-color: #00c4cc;
+    border-radius: 0;
     border-left: 1px dotted #087f83;
 }
 
-ol>li:hover {
+.el:hover {
     background-color: #087f83;
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
-ol>li:hover>a {
+.el:hover>.link {
     color: #00c4cc;
 }
 
-ol>li>ul {
+.list2 {
     list-style-type: none;
     padding: 0;
     margin: 0;
@@ -162,11 +93,11 @@ ol>li>ul {
     display: none;
 }
 
-ol>li:hover>ul {
+.el:hover>.list2 {
     display: block;
 }
 
-ol>li>ul>li {
+.ele {
     background-color: #087f83;
     position: relative;
     z-index: 100;
@@ -174,20 +105,15 @@ ol>li>ul>li {
     line-height: 150%;
 }
 
-ol>li>ul>li:last-child{
-    border-bottom-left-radius: 50px;
-    border-bottom-right-radius: 50px;
-}
-
-ol>li>ul>li:hover {
+.ele:hover {
     background-color: #00c4cc;
 }
 
-ol>li>ul>li:hover>a {
+.ele:hover>.link1 {
     color: #087f83;
 }
 
-ul a {
+.link1 {
     color: #00c4cc;
     display: block;
     text-decoration: none;
@@ -197,7 +123,7 @@ ul a {
     height: auto;
     width: 50%;
     margin: auto;
-    color: #afd2ee;
+    color: #ffffff;
 }
 .footer{
     height: 25px;
@@ -206,7 +132,7 @@ ul a {
     margin-bottom: 0;
     width: 100%;
     background-color: #00c4cc;
-    border-radius: 50px;
+    border-radius: 5px;
     text-align: center;
     font-size: 20px;
     color: #087f83;

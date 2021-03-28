@@ -99,6 +99,10 @@ body{
     text-align: center;
 }
 
+#text{
+    height: 50px;
+}
+
 .title{
     float: left;
     width: 100px;

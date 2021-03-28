@@ -1,56 +1,56 @@
-// List of sentences
-var _CONTENT = [ "Bezpieczna komunikacja", "Rozmowy ze znajomymi", "Czaty Grupowe" ];
-                    
-// Current sentence being processed
-var _PART = 0;
+var DownloadText = "Pobierz aplikację";
+if (navigator.appVersion.indexOf("Win") != -1) DownloadText = "Pobierz dla systemu windows";
+if (navigator.appVersion.indexOf("Mac") != -1) DownloadText = "Pobierz dla systemu Mac OS";
+if (navigator.appVersion.indexOf("Linux") != -1) DownloadText = "Pobierz dla systemu Linux";
+document.getElementById("download-os").innerHTML = DownloadText;
 
-// Character number of the current sentence being processed 
-var _PART_INDEX = 0;
+const _content = ["Bezpieczne rozmowy", "Prywatne wiadomości", "Secret Message"];
+var _part = 0;
+var _charIndex = 0;
+var _typingElem = document.getElementById("typing-animation");
+var _interval;
 
-// Holds the handle returned from setInterval
-var _INTERVAL_VAL;
+// settings
+const typing_speed = 100;
+const deleting_speed = 50;
+const between_time = 1000;
+const empty_time = 200;
+const cursor = "|";
+var _repeat = true;
 
-// Element that holds the text
-var _ELEMENT = document.querySelector("#text");
+function Type() {
+    var text = _content[_part].substring(0, _charIndex + 1);
+    _typingElem.innerHTML = text + cursor;
+    _charIndex++;
 
-// Implements typing effect
-function Type() { 
-    var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
-    _ELEMENT.innerHTML = text;
-    _PART_INDEX++;
-
-    // If full sentence has been displayed then start to delete the sentence after some time
-    if(text === _CONTENT[_PART]) {
-        clearInterval(_INTERVAL_VAL);
-        setTimeout(function() {
-            _INTERVAL_VAL = setInterval(Delete, 50);
-        }, 1000);
+    if (text == _content[_part]) {
+        clearInterval(_interval);
+        if (_part == _content.length - 1 && !_repeat) return;
+        setTimeout(() => {
+            _interval = setInterval(Delete, deleting_speed);
+        }, between_time);
     }
 }
 
-// Implements deleting effect
 function Delete() {
-    var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
-    _ELEMENT.innerHTML = text;
-    _PART_INDEX--;
+    var text = _content[_part].substring(0, _charIndex - 1);
+    _typingElem.innerHTML = text + cursor;
+    _charIndex--;
 
-    // If sentence has been deleted then start to display the next sentence
-    if(text === '') {
-        clearInterval(_INTERVAL_VAL);
+    if (text == '') {
+        clearInterval(_interval)
 
-        // If last sentence then display the first one, else move to the next
-        if(_PART == (_CONTENT.length - 1))
-            _PART = 0;
+        if (_part == _content.length - 1)
+            _part = 0;
         else
-            _PART++;
-        _PART_INDEX = 0;
+            _part++;
 
-        // Start to display the next sentence after some time
-        setTimeout(function() {
-            _INTERVAL_VAL = setInterval(Type, 100);
-        }, 200);
+        _charIndex = 0;
+
+        setTimeout(() => {
+            _interval = setInterval(Type, typing_speed);
+        }, empty_time);
     }
 }
 
-// Start the typing effect on load
-_INTERVAL_VAL = setInterval(Type, 100);
+_interval = setInterval(Type, typing_speed);

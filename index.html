@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="style.css"/>
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
-        <script src="script.js"></script>
+        
     </head>
     <body>
         <div class="container">
@@ -24,66 +24,7 @@
             <div style="clear: both;"></div>
             <div class="content">
                 <h1 id="text" class="center"></h1>
-                <script type="text/javascript">
-
-                    // List of sentences
-                    var _CONTENT = [ "Bezpieczna komunikacja", "Rozmowy ze znajomymi", "Czaty Grupowe" ];
-                    
-                    // Current sentence being processed
-                    var _PART = 0;
-                    
-                    // Character number of the current sentence being processed 
-                    var _PART_INDEX = 0;
-                    
-                    // Holds the handle returned from setInterval
-                    var _INTERVAL_VAL;
-                    
-                    // Element that holds the text
-                    var _ELEMENT = document.querySelector("#text");
-                    
-                    // Implements typing effect
-                    function Type() { 
-                        var text =  _CONTENT[_PART].substring(0, _PART_INDEX + 1);
-                        _ELEMENT.innerHTML = text;
-                        _PART_INDEX++;
-                    
-                        // If full sentence has been displayed then start to delete the sentence after some time
-                        if(text === _CONTENT[_PART]) {
-                            clearInterval(_INTERVAL_VAL);
-                            setTimeout(function() {
-                                _INTERVAL_VAL = setInterval(Delete, 50);
-                            }, 1000);
-                        }
-                    }
-                    
-                    // Implements deleting effect
-                    function Delete() {
-                        var text =  _CONTENT[_PART].substring(0, _PART_INDEX - 1);
-                        _ELEMENT.innerHTML = text;
-                        _PART_INDEX--;
-                    
-                        // If sentence has been deleted then start to display the next sentence
-                        if(text === '') {
-                            clearInterval(_INTERVAL_VAL);
-                    
-                            // If last sentence then display the first one, else move to the next
-                            if(_PART == (_CONTENT.length - 1))
-                                _PART = 0;
-                            else
-                                _PART++;
-                            _PART_INDEX = 0;
-                    
-                            // Start to display the next sentence after some time
-                            setTimeout(function() {
-                                _INTERVAL_VAL = setInterval(Type, 100);
-                            }, 200);
-                        }
-                    }
-                    
-                    // Start the typing effect on load
-                    _INTERVAL_VAL = setInterval(Type, 100);
-                    
-                    </script>
+                <script src="scripta.js"></script>
                 <p class="center">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus sodales ligula quis nisi luctus cursus. Nulla 
                     commodo, turpis sed venenatis interdum, libero mauris venenatis felis, et cursus nulla lectus eu justo. Cras et
@@ -97,20 +38,12 @@
                     <button id = "download-os"></button>
                     <button class="web">Otwórz Secret Message online</button>
                 </div>
-                <script>
-                    var DownloadText = "Pobierz aplikację";
-                    if (navigator.appVersion.indexOf("Win") != -1) DownloadText = "Pobierz dla systemu windows";
-                    if (navigator.appVersion.indexOf("Mac") != -1) DownloadText = "Pobierz dla systemu Mac OS";
-                    if (navigator.appVersion.indexOf("Linux") != -1) DownloadText = "Pobierz dla systemu Linux";
-                    document.getElementById("download-os").innerText = DownloadText;
-                </script>
                 <div style="clear: both;"></div>
-                <!--<p id="download-os">Pobierz aplikację</p>
-                <p id="typing-animation">Secret Message</p>!-->
             </div>
             <div class="footer">
                 Secret Message project © 2021 is licensed under CC BY-NC-ND 4.0
             </div>
+            <script src="script.js"></script>
         </div>
     </body>
 </html>

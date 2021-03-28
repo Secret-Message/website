@@ -127,7 +127,7 @@ body{
     display: block;
 }
 
-#typing-animation:hover{
+.web:hover{
     background-color: #04a8ad;
 }
 
@@ -135,7 +135,7 @@ body{
     background-color: #0ac495;
 }
 
-#typing-animation{
+.web{
     font-family: 'Montserrat', sans-serif;
     background-color: #00c4cc;
     border-radius: 50px;

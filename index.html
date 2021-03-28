@@ -94,9 +94,16 @@
                 <img src="logo.png" width="150" height="150" style="display: block;float: left;"/>
                 <div class="title">SECRET MESSAGE</div>
                 <div class="buttons">
-                    <button id="download-os">Pobierz dla systemu Windows</button>
-                    <button id="typing-animation">Otwórz Secret Message online</button>
+                    <button id = "download-os"></button>
+                    <button class="web">Otwórz Secret Message online</button>
                 </div>
+                <script>
+                    var DownloadText = "Pobierz aplikację";
+                    if (navigator.appVersion.indexOf("Win") != -1) DownloadText = "Pobierz dla systemu windows";
+                    if (navigator.appVersion.indexOf("Mac") != -1) DownloadText = "Pobierz dla systemu Mac OS";
+                    if (navigator.appVersion.indexOf("Linux") != -1) DownloadText = "Pobierz dla systemu Linux";
+                    document.getElementById("download-os").innerText = DownloadText;
+                </script>
                 <div style="clear: both;"></div>
                 <!--<p id="download-os">Pobierz aplikację</p>
                 <p id="typing-animation">Secret Message</p>!-->

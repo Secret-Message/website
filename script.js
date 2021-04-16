@@ -4,7 +4,7 @@ if (navigator.appVersion.indexOf("Mac") != -1) DownloadText = "Pobierz dla syste
 if (navigator.appVersion.indexOf("Linux") != -1) DownloadText = "Pobierz dla systemu Linux";
 document.getElementById("download-os").innerHTML = DownloadText;
 
-const _content = ["Bezpieczne rozmowy", "Szybki support", "Customowe plany płatności", "Czaty voice", "Tego szukasz?", "Wybierz Secret Message!"];
+const _content = ["Bezpieczne rozmowy", "Szybki support", "BotCreator", "Czaty voice","EZ setup", "Tego szukasz?", "Wybierz Secret Message!"];
 var _part = 0;
 var _charIndex = 0;
 var _typingElem = document.getElementById("typing-animation");

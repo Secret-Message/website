@@ -5,8 +5,11 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ]
-  },
+    ],
+    // Dynamic Links will start with https://secmsg.me/go
+    "appAssociation": "AUTO",
+    "rewrites": [ { "source": "/go/**", "dynamicLinks": true } ]
+},
   "remoteconfig": {
     "template": "remoteconfig.template.json"
   }
